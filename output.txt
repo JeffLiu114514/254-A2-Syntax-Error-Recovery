@@ -1,0 +1,28 @@
+[jliu137@cycle1 CSC254_project2]$ make
+make: 'test' is up to date.
+[jliu137@cycle1 CSC254_project2]$ ./parse < correct
+[ (int "n")
+(read "n")
+(int "cp")
+(:= "cp" "2")
+(while (> "n" "0")
+[ (int "found")
+(:= "found" "0")
+(int "cf1")
+(:= "cf1" "2")
+(int "cf1s")
+(:= "cf1s" (* "cf1" "cf1"))
+(while (<= "cf1s" "cp")
+[ (int "cf2")
+(:= "cf2" "2")
+(int "pr")
+(:= "pr" (* "cf1" "cf2"))
+(while (<= "pr" "cp")
+[ (if (== "pr" "cp")
+[(:= "found" "1")
+ ])(:= "cf2" (+ "cf2" "1"))(:= "pr" (* "cf1" "cf2"))
+ ])(:= "cf1" (+ "cf1" "1"))(:= "cf1s" (* "cf1" "cf1"))
+ ])(if (== "found" "0")
+[(write "cp")(:= "n" (- "n" "1"))
+ ])(:= "cp" (+ "cp" "1"))
+ ]) ]
